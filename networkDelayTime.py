@@ -3,7 +3,7 @@ class Solution:
         visit = set()
         minHeap = []
         graph = defaultdict(list)
-        ans = []
+        ans = 0
 
         for u, v, w in times:
             graph[u].append([w, v])
@@ -17,8 +17,8 @@ class Solution:
             if vertex in visit:
                 continue
             visit.add(vertex)
-            ans.append(delay)
+            ans = delay
             for w, v in graph[vertex]:
                 heapq.heappush(minHeap, [w + delay, v])
         
-        return max(ans) if len(visit) == n else -1
+        return ans if len(visit) == n else -1
