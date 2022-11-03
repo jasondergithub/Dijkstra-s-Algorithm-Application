@@ -1,5 +1,10 @@
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        '''
+        The important input constraints of this function:
+        * 1 <= source node number, target node number <= n
+        * source node number != target node number
+        '''
         visit = set()
         minHeap = []
         graph = defaultdict(list)
